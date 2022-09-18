@@ -46,12 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="LobbyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="LobbyForm.Designer.cs">
+      <DependentUpon>LobbyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs" />
     <Compile Include="PlayerEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,14 +79,17 @@
     <Compile Include="TeamInspectorForm.Designer.cs">
       <DependentUpon>TeamInspectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TournamentForm.cs">
+    <Compile Include="CreateTournamentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TournamentForm.Designer.cs">
-      <DependentUpon>TournamentForm.cs</DependentUpon>
+    <Compile Include="CreateTournamentForm.Designer.cs">
+      <DependentUpon>CreateTournamentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="LobbyForm.resx">
+      <DependentUpon>LobbyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayerEditorForm.resx">
       <DependentUpon>PlayerEditorForm.cs</DependentUpon>
@@ -99,8 +109,8 @@
     <EmbeddedResource Include="TeamInspectorForm.resx">
       <DependentUpon>TeamInspectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TournamentForm.resx">
-      <DependentUpon>TournamentForm.cs</DependentUpon>
+    <EmbeddedResource Include="CreateTournamentForm.resx">
+      <DependentUpon>CreateTournamentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace OOP
 {
-    public partial class TeamInspectorForm : Form
+    public partial class CreateTournamentForm : Form
     {
         private MainForm mainForm;
 
-        public TeamInspectorForm(MainForm mainForm)
+        public CreateTournamentForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
@@ -23,7 +23,13 @@ namespace OOP
         private void button1_Click(object sender, EventArgs e)
         {
             if (mainForm != null)
-                mainForm.PanelForm(new CreateTournamentForm(mainForm));
+                mainForm.PanelForm(new LobbyForm(mainForm));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (mainForm != null)
+                mainForm.PanelForm(new TeamInspectorForm(mainForm));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace OOP
 {
-    partial class TournamentForm
+    partial class CreateTournamentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -81,6 +81,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Домой";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -90,6 +91,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Далее";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox1
             // 
@@ -99,7 +101,7 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
             // 
-            // TournamentForm
+            // CreateTournamentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +113,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "TournamentForm";
+            this.Name = "CreateTournamentForm";
             this.Text = "TournamentForm";
             this.ResumeLayout(false);
             this.PerformLayout();
