@@ -29,7 +29,7 @@ namespace OOP
         private void button2_Click(object sender, EventArgs e)
         {
             if (mainForm != null)
-                mainForm.PanelForm(new TeamInspectorForm(mainForm));
+                mainForm.PanelForm(new TeamInspectorForm(mainForm, this.textBox1.Text.ToString()));
         }
     }
 }
