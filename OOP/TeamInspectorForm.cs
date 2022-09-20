@@ -8,13 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MySqlX.XDevAPI.Relational;
 
 namespace OOP
 {
     public partial class TeamInspectorForm : Form
     {
-        private MainForm mainForm;
-        private string tournamentName;
+        MainForm mainForm;
+        string tournamentName;
+        DataTable teamsTable;
 
         public TeamInspectorForm(MainForm mainForm, string tournamentName)
         {
@@ -25,36 +29,64 @@ namespace OOP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (mainForm != null && this.tournamentName != null)
-                mainForm.PanelForm(new TournamentForm(mainForm, this.tournamentName));
+            if (mainForm != null && tournamentName != null)
+                mainForm.PanelForm(new TournamentForm(mainForm, tournamentName));
         }
 
         private void TeamInspectorForm_Load(object sender, EventArgs e)
         {
-            if (this.tournamentName != null)
-                this.label4.Text = "Турнир: " + this.tournamentName;
-
+            if (tournamentName != null)
+                label4.Text = "Турнир: " + tournamentName;
 
             DB db = new DB();
-
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand cmd = new MySqlCommand("SELECT `name` FROM `team` WHERE `tournament` = @tN", db.GetConnection());
+            MySqlCommand cmd = new MySqlCommand("SELECT `id`, `name` FROM `team` WHERE `tournament` = @tN", db.GetConnection());
             cmd.Parameters.Add("@tN", MySqlDbType.VarChar).Value = tournamentName;
 
-            adapter.SelectCommand = cmd;
-            adapter.Fill(table);
+            teamsTable = db.SelectRequest(cmd);
 
-            for (int i = 0; i < table.Rows.Count; i++)
-                this.listBox1.Items.Add(table.Rows[i][0].ToString());
+            for (int i = 0; i < teamsTable.Rows.Count; i++)
+                listBox1.Items.Add(teamsTable.Rows[i][1].ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (mainForm != null && this.tournamentName != null && this.listBox1.SelectedItem != null)
-                mainForm.PanelForm(new TeamCompositionForm(mainForm, this.tournamentName, this.listBox1.SelectedItem.ToString()));
+            if (mainForm != null && tournamentName != null && listBox1.SelectedItem != null)
+                mainForm.PanelForm(new TeamCompositionForm(mainForm, tournamentName, teamsTable.Rows[listBox1.SelectedIndex][0].ToString()));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bool flag = true;
+            for (int i = 0; i < teamsTable.Rows.Count; i++)
+                if (teamsTable?.Rows[i][1]?.ToString() == textBox1.Text.Trim(' '))
+                    flag = false;
+
+            if (flag)
+            {
+                if (textBox1.Text.Trim(' ') != "")
+                {
+                    DB db = new DB();
+                    db.ChangeData("INSERT INTO `team` (`name`, `tournament`) VALUES('"
+                        + textBox1.Text.Trim(' ') + "', '" + tournamentName + "')");
+
+                    mainForm.PanelForm(new TeamInspectorForm(mainForm, tournamentName));
+                }
+                else
+                    MessageBox.Show("Название команды не может быть пустым!");
+            }
+            else
+                MessageBox.Show("Команда с таким названием уже существует!");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(listBox1.SelectedItem != null)
+            {
+                DB db = new DB();
+                db.ChangeData("DELETE FROM `team` WHERE `id`=" + teamsTable.Rows[listBox1.SelectedIndex][0].ToString());
+
+                mainForm.PanelForm(new TeamInspectorForm(mainForm, tournamentName));
+            }
         }
     }
 }

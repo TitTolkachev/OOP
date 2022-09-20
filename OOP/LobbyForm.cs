@@ -21,8 +21,6 @@ namespace OOP
             this.mainForm = mainForm;
         }
 
-        
-
         private void button1_Click(object sender, EventArgs e)
         {
             if(mainForm != null)
@@ -38,16 +36,11 @@ namespace OOP
         {
             DB db = new DB();
 
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
             MySqlCommand cmd = new MySqlCommand("SELECT `name` FROM `tournament`", db.GetConnection());
 
-            adapter.SelectCommand = cmd;
-            adapter.Fill(table);
+            DataTable table = db.SelectRequest(cmd);
 
-            for(int i = 0; i < table.Rows.Count; i++)
+            for (int i = 0; i < table.Rows.Count; i++)
                 this.comboBox1.Items.Add(table.Rows[i][0]);
         }
 
@@ -55,6 +48,8 @@ namespace OOP
         {
             if (mainForm != null && this.comboBox1.SelectedItem != null)
                 mainForm.PanelForm(new TournamentForm(mainForm, this.comboBox1.SelectedItem.ToString()));
+            else
+                MessageBox.Show("Выберете турнир или создайте новый!");
         }
     }
 }

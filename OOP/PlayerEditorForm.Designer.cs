@@ -58,18 +58,19 @@
             this.listBox1.Location = new System.Drawing.Point(179, 113);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(159, 116);
+            this.listBox1.Size = new System.Drawing.Size(228, 164);
             this.listBox1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(179, 253);
+            this.button1.Location = new System.Drawing.Point(179, 285);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 42);
+            this.button1.Size = new System.Drawing.Size(228, 42);
             this.button1.TabIndex = 1;
             this.button1.Text = "Удалить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -80,6 +81,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Создать";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -90,7 +92,6 @@
             this.label1.Size = new System.Drawing.Size(33, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Имя";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -125,7 +126,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(576, 181);
+            this.label5.Location = new System.Drawing.Point(575, 187);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 16);
@@ -135,7 +136,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(596, 244);
+            this.label6.Location = new System.Drawing.Point(594, 220);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 16);
@@ -145,7 +146,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(589, 213);
+            this.label7.Location = new System.Drawing.Point(587, 247);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 16);
@@ -170,11 +171,14 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(640, 121);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.Value = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             // 
             // radioButton1
             // 
@@ -192,7 +196,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(709, 153);
+            this.radioButton2.Location = new System.Drawing.Point(704, 151);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(53, 20);
@@ -218,6 +222,8 @@
             // 
             // maskedTextBox3
             // 
+            this.maskedTextBox3.AllowPromptAsInput = false;
+            this.maskedTextBox3.BeepOnError = true;
             this.maskedTextBox3.Location = new System.Drawing.Point(640, 244);
             this.maskedTextBox3.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBox3.Name = "maskedTextBox3";
@@ -226,7 +232,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(313, 347);
+            this.button3.Location = new System.Drawing.Point(355, 357);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 44);
@@ -237,7 +243,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(501, 347);
+            this.button4.Location = new System.Drawing.Point(519, 357);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(127, 44);
             this.button4.TabIndex = 19;
@@ -284,6 +290,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlayerEditorForm";
             this.Text = "PlayerEditorForm";
+            this.Load += new System.EventHandler(this.PlayerEditorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
