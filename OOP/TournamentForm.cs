@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,45 @@ namespace OOP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //генератор сетки
+            DB db = new DB();
+            MySqlCommand cmd = new MySqlCommand("SELECT `type` FROM `tournament` WHERE `name` = @tN", db.GetConnection());
+            cmd.Parameters.Add("@tN", MySqlDbType.VarChar).Value = tournamentName;
+            DataTable table = db.SelectRequest(cmd);
+
+            db.ChangeData($"DELETE FROM `game` WHERE `tournament_name` = '{tournamentName}'");
+            DataTable teams = db.SelectRequest(new MySqlCommand(
+                $"SELECT * FROM `team` WHERE `tournament` = '{tournamentName}'",
+                db.GetConnection()));
+
+            int index;
+            if (table.Rows[0][0]?.ToString() == "Circular")
+            {
+                for(int i = 1; i < teams.Rows.Count; i++)
+                {
+                    for(int j = 0; j < i; j++)
+                    {
+                        db.ChangeData($"INSERT INTO `game` (`id`, `tournament_name`, `date`, `is_finished`) VALUES (NULL, '{tournamentName}', NULL, '0')");
+                        index = int.Parse(db.SelectRequest(new MySqlCommand("SELECT MAX(`id`) FROM `game`", db.GetConnection()))?.Rows[0][0]?.ToString());
+                        db.ChangeData($"INSERT INTO `game-team` (`team_id`, `team_name`, `game_id`, `team_points`) VALUES ('{teams.Rows[i][0]}', '{teams.Rows[i][1]}', '{index}', '0')");
+                        db.ChangeData($"INSERT INTO `game-team` (`team_id`, `team_name`, `game_id`, `team_points`) VALUES ('{teams.Rows[j][0]}', '{teams.Rows[j][1]}', '{index}', '0')");
+                    }
+                }
+            }
+            else if(table.Rows[0][0]?.ToString() == "BattleRoyal")
+            {
+                //for (int i = 1; i < teams.Rows.Count; i++)
+                //{
+                //    for (int j = 0; j < i; j++)
+                //    {
+                //        db.ChangeData($"INSERT INTO `game` (`id`, `tournament_name`, `date`, `is_finished`) VALUES (NULL, '{tournamentName}', NULL, '0')");
+                //        index = int.Parse(db.SelectRequest(new MySqlCommand("SELECT MAX(`id`) FROM `game`", db.GetConnection()))?.Rows[0][0]?.ToString());
+                //        db.ChangeData($"INSERT INTO `game-team` (`team_id`, `team_name`, `game_id`, `team_points`) VALUES ('{teams.Rows[i][0]}', '{teams.Rows[i][1]}', '{index}', '0')");
+                //        db.ChangeData($"INSERT INTO `game-team` (`team_id`, `team_name`, `game_id`, `team_points`) VALUES ('{teams.Rows[j][0]}', '{teams.Rows[j][1]}', '{index}', '0')");
+                //    }
+                //}
+            }
+
+            mainForm.PanelForm(new TournamentForm(mainForm, tournamentName));
         }
 
         private void button2_Click(object sender, EventArgs e)
