@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AddPlayerBtn = new System.Windows.Forms.Button();
+            this.PlayersComboBox = new System.Windows.Forms.ComboBox();
+            this.ToPlayerEditorBtn = new System.Windows.Forms.Button();
+            this.ToToutnamentBtn = new System.Windows.Forms.Button();
+            this.RemovePlayerBtn = new System.Windows.Forms.Button();
+            this.TeamNameLabel = new System.Windows.Forms.Label();
+            this.PlayersListBox = new System.Windows.Forms.ListBox();
+            this.ToTeamsBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -49,101 +49,101 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Состав";
             // 
-            // button1
+            // AddPlayerBtn
             // 
-            this.button1.Location = new System.Drawing.Point(564, 169);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddPlayerBtn.Location = new System.Drawing.Point(564, 169);
+            this.AddPlayerBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.AddPlayerBtn.Name = "AddPlayerBtn";
+            this.AddPlayerBtn.Size = new System.Drawing.Size(100, 28);
+            this.AddPlayerBtn.TabIndex = 2;
+            this.AddPlayerBtn.Text = "Добавить";
+            this.AddPlayerBtn.UseVisualStyleBackColor = true;
+            this.AddPlayerBtn.Click += new System.EventHandler(this.AddPlayerBtnClick);
             // 
-            // comboBox1
+            // PlayersComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(564, 110);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 3;
+            this.PlayersComboBox.FormattingEnabled = true;
+            this.PlayersComboBox.Location = new System.Drawing.Point(564, 110);
+            this.PlayersComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PlayersComboBox.Name = "PlayersComboBox";
+            this.PlayersComboBox.Size = new System.Drawing.Size(160, 24);
+            this.PlayersComboBox.TabIndex = 3;
             // 
-            // button2
+            // ToPlayerEditorBtn
             // 
-            this.button2.Location = new System.Drawing.Point(644, 306);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 52);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Редактор игроков";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ToPlayerEditorBtn.Location = new System.Drawing.Point(644, 306);
+            this.ToPlayerEditorBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.ToPlayerEditorBtn.Name = "ToPlayerEditorBtn";
+            this.ToPlayerEditorBtn.Size = new System.Drawing.Size(147, 52);
+            this.ToPlayerEditorBtn.TabIndex = 4;
+            this.ToPlayerEditorBtn.Text = "Редактор игроков";
+            this.ToPlayerEditorBtn.UseVisualStyleBackColor = true;
+            this.ToPlayerEditorBtn.Click += new System.EventHandler(this.ToPlayerEditorBtnClick);
             // 
-            // button4
+            // ToToutnamentBtn
             // 
-            this.button4.Location = new System.Drawing.Point(268, 306);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(160, 52);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "В турнир";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.ToToutnamentBtn.Location = new System.Drawing.Point(268, 306);
+            this.ToToutnamentBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.ToToutnamentBtn.Name = "ToToutnamentBtn";
+            this.ToToutnamentBtn.Size = new System.Drawing.Size(160, 52);
+            this.ToToutnamentBtn.TabIndex = 6;
+            this.ToToutnamentBtn.Text = "В турнир";
+            this.ToToutnamentBtn.UseVisualStyleBackColor = true;
+            this.ToToutnamentBtn.Click += new System.EventHandler(this.ToToutnamentBtnClick);
             // 
-            // button5
+            // RemovePlayerBtn
             // 
-            this.button5.Location = new System.Drawing.Point(351, 159);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 28);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Выгнать";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.RemovePlayerBtn.Location = new System.Drawing.Point(351, 159);
+            this.RemovePlayerBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.RemovePlayerBtn.Name = "RemovePlayerBtn";
+            this.RemovePlayerBtn.Size = new System.Drawing.Size(100, 28);
+            this.RemovePlayerBtn.TabIndex = 8;
+            this.RemovePlayerBtn.Text = "Выгнать";
+            this.RemovePlayerBtn.UseVisualStyleBackColor = true;
+            this.RemovePlayerBtn.Click += new System.EventHandler(this.RemovePlayerBtnClick);
             // 
-            // label2
+            // TeamNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(377, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 31);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Название команды";
+            this.TeamNameLabel.AutoSize = true;
+            this.TeamNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TeamNameLabel.Location = new System.Drawing.Point(377, 35);
+            this.TeamNameLabel.Name = "TeamNameLabel";
+            this.TeamNameLabel.Size = new System.Drawing.Size(257, 31);
+            this.TeamNameLabel.TabIndex = 10;
+            this.TeamNameLabel.Text = "Название команды";
             // 
-            // listBox1
+            // PlayersListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(162, 113);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(166, 164);
-            this.listBox1.TabIndex = 11;
+            this.PlayersListBox.FormattingEnabled = true;
+            this.PlayersListBox.ItemHeight = 16;
+            this.PlayersListBox.Location = new System.Drawing.Point(162, 113);
+            this.PlayersListBox.Name = "PlayersListBox";
+            this.PlayersListBox.Size = new System.Drawing.Size(166, 164);
+            this.PlayersListBox.TabIndex = 11;
             // 
-            // button3
+            // ToTeamsBtn
             // 
-            this.button3.Location = new System.Drawing.Point(462, 306);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 52);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Команды";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.ToTeamsBtn.Location = new System.Drawing.Point(462, 306);
+            this.ToTeamsBtn.Name = "ToTeamsBtn";
+            this.ToTeamsBtn.Size = new System.Drawing.Size(151, 52);
+            this.ToTeamsBtn.TabIndex = 12;
+            this.ToTeamsBtn.Text = "Команды";
+            this.ToTeamsBtn.UseVisualStyleBackColor = true;
+            this.ToTeamsBtn.Click += new System.EventHandler(this.ToTeamsBtnClick);
             // 
             // TeamCompositionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ToTeamsBtn);
+            this.Controls.Add(this.PlayersListBox);
+            this.Controls.Add(this.TeamNameLabel);
+            this.Controls.Add(this.RemovePlayerBtn);
+            this.Controls.Add(this.ToToutnamentBtn);
+            this.Controls.Add(this.ToPlayerEditorBtn);
+            this.Controls.Add(this.PlayersComboBox);
+            this.Controls.Add(this.AddPlayerBtn);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TeamCompositionForm";
@@ -157,13 +157,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddPlayerBtn;
+        private System.Windows.Forms.ComboBox PlayersComboBox;
+        private System.Windows.Forms.Button ToPlayerEditorBtn;
+        private System.Windows.Forms.Button ToToutnamentBtn;
+        private System.Windows.Forms.Button RemovePlayerBtn;
+        private System.Windows.Forms.Label TeamNameLabel;
+        private System.Windows.Forms.ListBox PlayersListBox;
+        private System.Windows.Forms.Button ToTeamsBtn;
     }
 }

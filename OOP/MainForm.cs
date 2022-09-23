@@ -28,8 +28,8 @@ namespace OOP
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
-            this.panel1.Controls.Add(form);
-            this.panel1.Tag = form;
+            panel1.Controls.Add(form);
+            panel1.Tag = form;
             form.BringToFront();
             form.Show();
         }

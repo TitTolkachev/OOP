@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TournamentNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.SexSeparationCheckBox = new System.Windows.Forms.CheckBox();
+            this.ToLobbyBtn = new System.Windows.Forms.Button();
+            this.CreateTournamentBtn = new System.Windows.Forms.Button();
+            this.TournamentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // TournamentNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 111);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 22);
-            this.textBox1.TabIndex = 0;
+            this.TournamentNameTextBox.Location = new System.Drawing.Point(119, 111);
+            this.TournamentNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.TournamentNameTextBox.Name = "TournamentNameTextBox";
+            this.TournamentNameTextBox.Size = new System.Drawing.Size(220, 22);
+            this.TournamentNameTextBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -65,66 +65,65 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Система проведения турнира";
             // 
-            // checkBox1
+            // SexSeparationCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(119, 282);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox1.Size = new System.Drawing.Size(183, 20);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Гендерное разделение";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.SexSeparationCheckBox.AutoSize = true;
+            this.SexSeparationCheckBox.Location = new System.Drawing.Point(119, 282);
+            this.SexSeparationCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SexSeparationCheckBox.Name = "SexSeparationCheckBox";
+            this.SexSeparationCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SexSeparationCheckBox.Size = new System.Drawing.Size(183, 20);
+            this.SexSeparationCheckBox.TabIndex = 4;
+            this.SexSeparationCheckBox.Text = "Гендерное разделение";
+            this.SexSeparationCheckBox.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // ToLobbyBtn
             // 
-            this.button1.Location = new System.Drawing.Point(184, 374);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Домой";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ToLobbyBtn.Location = new System.Drawing.Point(184, 374);
+            this.ToLobbyBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.ToLobbyBtn.Name = "ToLobbyBtn";
+            this.ToLobbyBtn.Size = new System.Drawing.Size(100, 28);
+            this.ToLobbyBtn.TabIndex = 5;
+            this.ToLobbyBtn.Text = "Домой";
+            this.ToLobbyBtn.UseVisualStyleBackColor = true;
+            this.ToLobbyBtn.Click += new System.EventHandler(this.ToLobbyBtnClick);
             // 
-            // button2
+            // CreateTournamentBtn
             // 
-            this.button2.Location = new System.Drawing.Point(345, 374);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Далее";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CreateTournamentBtn.Location = new System.Drawing.Point(345, 374);
+            this.CreateTournamentBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.CreateTournamentBtn.Name = "CreateTournamentBtn";
+            this.CreateTournamentBtn.Size = new System.Drawing.Size(100, 28);
+            this.CreateTournamentBtn.TabIndex = 6;
+            this.CreateTournamentBtn.Text = "Далее";
+            this.CreateTournamentBtn.UseVisualStyleBackColor = true;
+            this.CreateTournamentBtn.Click += new System.EventHandler(this.CreateTournamentBtnClick);
             // 
-            // comboBox1
+            // TournamentTypeComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Олимпийская",
+            this.TournamentTypeComboBox.FormattingEnabled = true;
+            this.TournamentTypeComboBox.Items.AddRange(new object[] {
             "Круговая",
             "Королевская битва"});
-            this.comboBox1.Location = new System.Drawing.Point(123, 210);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 7;
+            this.TournamentTypeComboBox.Location = new System.Drawing.Point(123, 210);
+            this.TournamentTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.TournamentTypeComboBox.Name = "TournamentTypeComboBox";
+            this.TournamentTypeComboBox.Size = new System.Drawing.Size(160, 24);
+            this.TournamentTypeComboBox.TabIndex = 7;
             // 
             // CreateTournamentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.TournamentTypeComboBox);
+            this.Controls.Add(this.CreateTournamentBtn);
+            this.Controls.Add(this.ToLobbyBtn);
+            this.Controls.Add(this.SexSeparationCheckBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.TournamentNameTextBox);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateTournamentForm";
             this.Text = "TournamentForm";
             this.ResumeLayout(false);
@@ -134,12 +133,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TournamentNameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox SexSeparationCheckBox;
+        private System.Windows.Forms.Button ToLobbyBtn;
+        private System.Windows.Forms.Button CreateTournamentBtn;
+        private System.Windows.Forms.ComboBox TournamentTypeComboBox;
     }
 }

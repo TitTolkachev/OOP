@@ -1,75 +1,57 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using MySqlX.XDevAPI.Relational;
 
 namespace OOP
 {
     public partial class TeamInspectorForm : Form
     {
         MainForm mainForm;
-        string tournamentName;
-        DataTable teamsTable;
+        Tournament tournament;
+        List<Team> teams;
 
-        public TeamInspectorForm(MainForm mainForm, string tournamentName)
+        public TeamInspectorForm(MainForm mainForm, Tournament tournament)
         {
             InitializeComponent();
             this.mainForm = mainForm;
-            this.tournamentName = tournamentName;
+            this.tournament = tournament;
+            teams = tournament.GetTeams();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ToTournamentBtnClick(object sender, EventArgs e)
         {
-            if (mainForm != null && tournamentName != null)
-                mainForm.PanelForm(new TournamentForm(mainForm, tournamentName));
+            if (mainForm != null && tournament.name != null)
+                mainForm.PanelForm(new TournamentForm(mainForm, tournament));
         }
 
         private void TeamInspectorForm_Load(object sender, EventArgs e)
         {
-            if (tournamentName != null)
-                label4.Text = "Турнир: " + tournamentName;
+            if (tournament.name != null)
+                TournamentNameLabel.Text = "Турнир: " + tournament.name;
 
-            DB db = new DB();
-            MySqlCommand cmd = new MySqlCommand("SELECT `id`, `name` FROM `team` WHERE `tournament` = @tN", db.GetConnection());
-            cmd.Parameters.Add("@tN", MySqlDbType.VarChar).Value = tournamentName;
-
-            teamsTable = db.SelectRequest(cmd);
-
-            for (int i = 0; i < teamsTable.Rows.Count; i++)
-                listBox1.Items.Add(teamsTable.Rows[i][1].ToString());
+            for (int i = 0; i < teams.Count; i++)
+                TeamsListBox.Items.Add(teams[i].name);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ToTeamBtnClick(object sender, EventArgs e)
         {
-            if (mainForm != null && tournamentName != null && listBox1.SelectedItem != null)
-                mainForm.PanelForm(new TeamCompositionForm(mainForm, tournamentName, teamsTable.Rows[listBox1.SelectedIndex][0].ToString()));
+            if (mainForm != null && tournament.name != null && TeamsListBox.SelectedItem != null)
+                mainForm.PanelForm(new TeamCompositionForm(mainForm, tournament, teams[TeamsListBox.SelectedIndex]));
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AddTeamBtnClick(object sender, EventArgs e)
         {
             bool flag = true;
-            for (int i = 0; i < teamsTable.Rows.Count; i++)
-                if (teamsTable?.Rows[i][1]?.ToString() == textBox1.Text.Trim(' '))
+            for (int i = 0; i < teams.Count; i++)
+                if (teams[i].name == AddedTeamNameTextBox.Text.Trim(' '))
                     flag = false;
 
             if (flag)
             {
-                if (textBox1.Text.Trim(' ') != "")
+                if (AddedTeamNameTextBox.Text.Trim(' ') != "")
                 {
-                    DB db = new DB();
-                    db.ChangeData("INSERT INTO `team` (`name`, `tournament`) VALUES('"
-                        + textBox1.Text.Trim(' ') + "', '" + tournamentName + "')");
-
-                    mainForm.PanelForm(new TeamInspectorForm(mainForm, tournamentName));
+                    tournament.AddTeam(AddedTeamNameTextBox.Text.Trim(' '));
+                    mainForm.PanelForm(new TeamInspectorForm(mainForm, tournament));
                 }
                 else
                     MessageBox.Show("Название команды не может быть пустым!");
@@ -78,14 +60,12 @@ namespace OOP
                 MessageBox.Show("Команда с таким названием уже существует!");
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void RemoveTeamBtnClick(object sender, EventArgs e)
         {
-            if(listBox1.SelectedItem != null)
+            if(TeamsListBox.SelectedItem != null)
             {
-                DB db = new DB();
-                db.ChangeData("DELETE FROM `team` WHERE `id`=" + teamsTable.Rows[listBox1.SelectedIndex][0].ToString());
-
-                mainForm.PanelForm(new TeamInspectorForm(mainForm, tournamentName));
+                tournament.RemoveTeam(teams[TeamsListBox.SelectedIndex].id);
+                mainForm.PanelForm(new TeamInspectorForm(mainForm, tournament));
             }
         }
     }

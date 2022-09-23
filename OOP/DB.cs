@@ -1,11 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Relational;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP
 {
@@ -45,13 +40,11 @@ namespace OOP
 
         public void ChangeData(string request)
         {
-            this.OpenConnection();
+            OpenConnection();
             MySqlCommand command = new MySqlCommand(request, connection);
 
-            //MessageBox.Show(command.CommandText.ToString());
-
             command.ExecuteNonQuery();
-            this.CloseConnection();
+            CloseConnection();
         }
     }
 }

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PlayersListBox = new System.Windows.Forms.ListBox();
+            this.CreatePlayerBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,50 +37,39 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.SurnameTextBox = new System.Windows.Forms.TextBox();
+            this.BirthdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.SexMaleRadioBtn = new System.Windows.Forms.RadioButton();
+            this.SexFemaleRadioBtn = new System.Windows.Forms.RadioButton();
+            this.NumberTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.WeightTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.HeightTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.ToTournamentBtn = new System.Windows.Forms.Button();
+            this.ToTeamBtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBox1
+            // PlayersListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(179, 113);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(228, 164);
-            this.listBox1.TabIndex = 0;
+            this.PlayersListBox.FormattingEnabled = true;
+            this.PlayersListBox.ItemHeight = 16;
+            this.PlayersListBox.Location = new System.Drawing.Point(179, 113);
+            this.PlayersListBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PlayersListBox.Name = "PlayersListBox";
+            this.PlayersListBox.Size = new System.Drawing.Size(243, 164);
+            this.PlayersListBox.TabIndex = 0;
             // 
-            // button1
+            // CreatePlayerBtn
             // 
-            this.button1.Location = new System.Drawing.Point(179, 285);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(228, 42);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Удалить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(657, 295);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Создать";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CreatePlayerBtn.Location = new System.Drawing.Point(657, 295);
+            this.CreatePlayerBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.CreatePlayerBtn.Name = "CreatePlayerBtn";
+            this.CreatePlayerBtn.Size = new System.Drawing.Size(100, 28);
+            this.CreatePlayerBtn.TabIndex = 2;
+            this.CreatePlayerBtn.Text = "Создать";
+            this.CreatePlayerBtn.UseVisualStyleBackColor = true;
+            this.CreatePlayerBtn.Click += new System.EventHandler(this.CreatePlayerBtnClick);
             // 
             // label1
             // 
@@ -153,103 +141,103 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Рост";
             // 
-            // textBox1
+            // NameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(640, 50);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 10;
+            this.NameTextBox.Location = new System.Drawing.Point(640, 50);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(132, 22);
+            this.NameTextBox.TabIndex = 10;
             // 
-            // textBox2
+            // SurnameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(640, 84);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 22);
-            this.textBox2.TabIndex = 11;
+            this.SurnameTextBox.Location = new System.Drawing.Point(640, 84);
+            this.SurnameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SurnameTextBox.Name = "SurnameTextBox";
+            this.SurnameTextBox.Size = new System.Drawing.Size(132, 22);
+            this.SurnameTextBox.TabIndex = 11;
             // 
-            // dateTimePicker1
+            // BirthdayDateTimePicker
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(640, 121);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.Value = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
+            this.BirthdayDateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.BirthdayDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.BirthdayDateTimePicker.Location = new System.Drawing.Point(640, 121);
+            this.BirthdayDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
+            this.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker";
+            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(265, 22);
+            this.BirthdayDateTimePicker.TabIndex = 12;
+            this.BirthdayDateTimePicker.Value = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             // 
-            // radioButton1
+            // SexMaleRadioBtn
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(640, 151);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(54, 20);
-            this.radioButton1.TabIndex = 13;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "муж";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.SexMaleRadioBtn.AutoSize = true;
+            this.SexMaleRadioBtn.Checked = true;
+            this.SexMaleRadioBtn.Location = new System.Drawing.Point(640, 151);
+            this.SexMaleRadioBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.SexMaleRadioBtn.Name = "SexMaleRadioBtn";
+            this.SexMaleRadioBtn.Size = new System.Drawing.Size(54, 20);
+            this.SexMaleRadioBtn.TabIndex = 13;
+            this.SexMaleRadioBtn.TabStop = true;
+            this.SexMaleRadioBtn.Text = "муж";
+            this.SexMaleRadioBtn.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // SexFemaleRadioBtn
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(704, 151);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(53, 20);
-            this.radioButton2.TabIndex = 14;
-            this.radioButton2.Text = "жен";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.SexFemaleRadioBtn.AutoSize = true;
+            this.SexFemaleRadioBtn.Location = new System.Drawing.Point(704, 151);
+            this.SexFemaleRadioBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.SexFemaleRadioBtn.Name = "SexFemaleRadioBtn";
+            this.SexFemaleRadioBtn.Size = new System.Drawing.Size(53, 20);
+            this.SexFemaleRadioBtn.TabIndex = 14;
+            this.SexFemaleRadioBtn.Text = "жен";
+            this.SexFemaleRadioBtn.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox1
+            // NumberTextBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(640, 181);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(132, 22);
-            this.maskedTextBox1.TabIndex = 15;
+            this.NumberTextBox.Location = new System.Drawing.Point(640, 181);
+            this.NumberTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.NumberTextBox.Name = "NumberTextBox";
+            this.NumberTextBox.Size = new System.Drawing.Size(132, 22);
+            this.NumberTextBox.TabIndex = 15;
             // 
-            // maskedTextBox2
+            // WeightTextBox
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(640, 214);
-            this.maskedTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(132, 22);
-            this.maskedTextBox2.TabIndex = 16;
+            this.WeightTextBox.Location = new System.Drawing.Point(640, 214);
+            this.WeightTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.WeightTextBox.Name = "WeightTextBox";
+            this.WeightTextBox.Size = new System.Drawing.Size(132, 22);
+            this.WeightTextBox.TabIndex = 16;
             // 
-            // maskedTextBox3
+            // HeightTextBox
             // 
-            this.maskedTextBox3.AllowPromptAsInput = false;
-            this.maskedTextBox3.BeepOnError = true;
-            this.maskedTextBox3.Location = new System.Drawing.Point(640, 244);
-            this.maskedTextBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(132, 22);
-            this.maskedTextBox3.TabIndex = 17;
+            this.HeightTextBox.AllowPromptAsInput = false;
+            this.HeightTextBox.BeepOnError = true;
+            this.HeightTextBox.Location = new System.Drawing.Point(640, 244);
+            this.HeightTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.HeightTextBox.Name = "HeightTextBox";
+            this.HeightTextBox.Size = new System.Drawing.Size(132, 22);
+            this.HeightTextBox.TabIndex = 17;
             // 
-            // button3
+            // ToTournamentBtn
             // 
-            this.button3.Location = new System.Drawing.Point(355, 357);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(125, 44);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "В турнир";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.ToTournamentBtn.Location = new System.Drawing.Point(355, 357);
+            this.ToTournamentBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.ToTournamentBtn.Name = "ToTournamentBtn";
+            this.ToTournamentBtn.Size = new System.Drawing.Size(125, 44);
+            this.ToTournamentBtn.TabIndex = 18;
+            this.ToTournamentBtn.Text = "В турнир";
+            this.ToTournamentBtn.UseVisualStyleBackColor = true;
+            this.ToTournamentBtn.Click += new System.EventHandler(this.ToTournamentBtnClick);
             // 
-            // button4
+            // ToTeamBtn
             // 
-            this.button4.Location = new System.Drawing.Point(519, 357);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 44);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Команда";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.ToTeamBtn.Location = new System.Drawing.Point(519, 357);
+            this.ToTeamBtn.Name = "ToTeamBtn";
+            this.ToTeamBtn.Size = new System.Drawing.Size(127, 44);
+            this.ToTeamBtn.TabIndex = 19;
+            this.ToTeamBtn.Text = "Команда";
+            this.ToTeamBtn.UseVisualStyleBackColor = true;
+            this.ToTeamBtn.Click += new System.EventHandler(this.ToTeamBtnClick);
             // 
             // label8
             // 
@@ -257,9 +245,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(173, 50);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 31);
+            this.label8.Size = new System.Drawing.Size(249, 31);
             this.label8.TabIndex = 20;
-            this.label8.Text = "Игроки";
+            this.label8.Text = "Свободные игроки";
             // 
             // PlayerEditorForm
             // 
@@ -267,16 +255,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ToTeamBtn);
+            this.Controls.Add(this.ToTournamentBtn);
+            this.Controls.Add(this.HeightTextBox);
+            this.Controls.Add(this.WeightTextBox);
+            this.Controls.Add(this.NumberTextBox);
+            this.Controls.Add(this.SexFemaleRadioBtn);
+            this.Controls.Add(this.SexMaleRadioBtn);
+            this.Controls.Add(this.BirthdayDateTimePicker);
+            this.Controls.Add(this.SurnameTextBox);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -284,9 +272,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.CreatePlayerBtn);
+            this.Controls.Add(this.PlayersListBox);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlayerEditorForm";
             this.Text = "PlayerEditorForm";
@@ -298,9 +285,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox PlayersListBox;
+        private System.Windows.Forms.Button CreatePlayerBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -308,16 +294,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.TextBox SurnameTextBox;
+        private System.Windows.Forms.DateTimePicker BirthdayDateTimePicker;
+        private System.Windows.Forms.RadioButton SexMaleRadioBtn;
+        private System.Windows.Forms.RadioButton SexFemaleRadioBtn;
+        private System.Windows.Forms.MaskedTextBox NumberTextBox;
+        private System.Windows.Forms.MaskedTextBox WeightTextBox;
+        private System.Windows.Forms.MaskedTextBox HeightTextBox;
+        private System.Windows.Forms.Button ToTournamentBtn;
+        private System.Windows.Forms.Button ToTeamBtn;
         private System.Windows.Forms.Label label8;
     }
 }

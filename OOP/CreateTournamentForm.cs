@@ -1,12 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace OOP
@@ -21,41 +13,30 @@ namespace OOP
             this.mainForm = mainForm;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ToLobbyBtnClick(object sender, EventArgs e)
         {
             if (mainForm != null)
                 mainForm.PanelForm(new LobbyForm(mainForm));
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void CreateTournamentBtnClick(object sender, EventArgs e)
         {
-            DB db = new DB();
-
-            MySqlCommand cmd = new MySqlCommand("SELECT `name` FROM `team` WHERE `tournament` = @tN", db.GetConnection());
-            cmd.Parameters.Add("@tN", MySqlDbType.VarChar).Value = textBox1.Text;
-
-            DataTable table = db.SelectRequest(cmd);
-
-            if (table.Rows.Count == 0)
+            if (Controller.GetTournamentByName(TournamentNameTextBox.Text.Trim(' ')) == null)
             {
-                if (textBox1.Text.Trim(' ') != "")
+                if (TournamentNameTextBox.Text.Trim(' ') != "")
                 {
-                    if (comboBox1.SelectedItem != null)
+                    if (TournamentTypeComboBox.SelectedItem != null)
                     {
                         string tournamentType;
-                        if (comboBox1.SelectedIndex == 0)
-                            tournamentType = "Olympic";
-                        else if (comboBox1.SelectedIndex == 1)
+                        if (TournamentTypeComboBox.SelectedIndex == 0)
                             tournamentType = "Circular";
                         else
                             tournamentType = "BattleRoyal";
 
-                        db.ChangeData("INSERT INTO `tournament` (`name`, `type`, `sex_separation`, `is_finished`) VALUES('"
-                            + textBox1.Text + "', '" + tournamentType + "', '"
-                            + (checkBox1.Checked ? 1 : 0).ToString() + "', '0')");
+                        Controller.CreateTournament(TournamentNameTextBox.Text.Trim(' '), tournamentType, SexSeparationCheckBox.Checked);
 
                         if (mainForm != null)
-                            mainForm.PanelForm(new TeamInspectorForm(mainForm, this.textBox1.Text.ToString()));
+                            mainForm.PanelForm(new TeamInspectorForm(mainForm, Controller.GetTournamentByName(TournamentNameTextBox.Text.ToString())));
                     }
                     else
                         MessageBox.Show("Выберите тип турнира!");
