@@ -41,7 +41,7 @@ namespace OOP
         public static List<Game> GetGames(Tournament tournament)
         {
             DB db = new DB();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE `tournament` = @tN", db.GetConnection());
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `game` WHERE `tournament_name` = @tN", db.GetConnection());
             cmd.Parameters.Add("@tN", MySqlDbType.VarChar).Value = tournament.name;
             DataTable gamesTable = db.SelectRequest(cmd);
 
@@ -52,7 +52,7 @@ namespace OOP
                 {
                     id = int.Parse(gamesTable.Rows[i][0].ToString()),
                     tournament_name = gamesTable.Rows[i][1].ToString(),
-                    date = DateTime.Parse(gamesTable.Rows[i][2].ToString()),
+                    date = (gamesTable.Rows[i][2] is DateTime) ? ((DateTime)gamesTable.Rows[i][2]).ToString("yyyy-MM-dd hh:mm:ss") : null,
                     isFinished = gamesTable.Rows[i][3].ToString() == "True"
                 };
                 games.Add(game);

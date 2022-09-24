@@ -9,7 +9,7 @@ namespace OOP
         MainForm mainForm;
         Tournament tournament;
         Team team;
-        List<Player> players;
+        List<Player> freePlayers;
 
         public PlayerEditorForm(MainForm mainForm, Tournament tournament, Team team)
         {
@@ -17,13 +17,13 @@ namespace OOP
             this.mainForm = mainForm;
             this.tournament = tournament;
             this.team = team;
-            players = team.GetPlayers();
+            freePlayers = Controller.GetFreePlayers();
         }
 
         private void PlayerEditorForm_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < players.Count; i++)
-                PlayersListBox.Items.Add(players[i].name + ' ' + players[i].surname);
+            for (int i = 0; i < freePlayers.Count; i++)
+                PlayersListBox.Items.Add(freePlayers[i].name + ' ' + freePlayers[i].surname);
         }
 
         private void ToTournamentBtnClick(object sender, EventArgs e)
@@ -49,12 +49,11 @@ namespace OOP
                 {
                     name = NameTextBox.Text,
                     surname = SurnameTextBox.Text,
-                    birthday = DateTime.Parse(BirthdayDateTimePicker.Text),
+                    birthday = BirthdayDateTimePicker.Value.ToString("yyyy-MM-dd"),
                     sex = SexMaleRadioBtn.Checked ? "Муж" : "Жен",
                     number = int.Parse(NumberTextBox.Text),
                     weight = int.Parse(WeightTextBox.Text),
-                    height = int.Parse(HeightTextBox.Text),
-                    teamId = team.id,
+                    height = int.Parse(HeightTextBox.Text)
                 });
 
                 mainForm.PanelForm(new PlayerEditorForm(mainForm, tournament, team));

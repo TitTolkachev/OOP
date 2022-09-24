@@ -7,7 +7,7 @@ namespace OOP
         public int id;
         public string name;
         public string surname;
-        public DateTime birthday;
+        public string birthday;
         public string sex;
     }
 }

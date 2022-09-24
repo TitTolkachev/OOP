@@ -34,7 +34,7 @@ namespace OOP
                     id = int.Parse(teamPlayersTable.Rows[i][0].ToString()),
                     name = teamPlayersTable.Rows[i][1].ToString(),
                     surname = teamPlayersTable.Rows[i][2].ToString(),
-                    birthday = DateTime.Parse(teamPlayersTable.Rows[i][3].ToString()),
+                    birthday = teamPlayersTable.Rows[i][3].ToString(),
                     sex = teamPlayersTable.Rows[i][4].ToString(),
                     number = int.Parse(teamPlayersTable.Rows[i][5].ToString()),
                     weight = int.Parse(teamPlayersTable.Rows[i][6].ToString()),

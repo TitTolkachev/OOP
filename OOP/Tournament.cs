@@ -10,26 +10,28 @@ namespace OOP
         public string name { get; set; }
         public string type { get; set; }
         public bool sexSeparation { get; set; }
+        private bool _isFinished;
         public bool isFinished
         {
-            get { return isFinished; }
+            get { return _isFinished; }
             set
             {
-                if (value == true && isFinished == false)
+                if (value == true && _isFinished == false)
                 {
-                    isFinished = true;
+                    _isFinished = value;
                     db.ChangeData($"UPDATE `tournament` SET `is_finished` = 1 WHERE `tournament`.`name` = '{name}'");
                 }
             }
         }
+        private bool _isStarted;
         public bool isStarted
         {
-            get { return isStarted; }
+            get { return _isStarted; }
             set
             {
-                if (value == true && isStarted == false)
+                if (value == true && _isStarted == false)
                 {
-                    isStarted = true;
+                    _isStarted = true;
                     db.ChangeData($"UPDATE `tournament` SET `is_started` = 1 WHERE `tournament`.`name` = '{name}'");
                 }
             }

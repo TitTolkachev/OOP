@@ -24,7 +24,7 @@ namespace OOP
 
             for (int i = 0; i < games.Count; i++)
             {
-                if (games[i].date.ToString() != "")
+                if (games[i].date != null && games[i].date.ToString() != "")
                     GamesListBox.Items.Add($"Game {i + 1}: date - {games[i].date}, is finished - {games[i].isFinished}");
                 else
                     GamesListBox.Items.Add($"Game {i + 1}: date - not set, is finished - {games[i].isFinished}");
