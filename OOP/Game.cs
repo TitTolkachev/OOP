@@ -7,8 +7,8 @@ namespace OOP
     public class Game
     {
         public int id { get; set; }
-        public string tournament_name { get; set; }
-        private string _date;
+        public string tournamentName { get; set; }
+        public bool isFinished { get; set; }
         public string date
         {
             get { return _date; }
@@ -22,7 +22,7 @@ namespace OOP
                 }
             }
         }
-        public bool isFinished { get; set; }
+        private string _date;
 
         public void Finish()
         {

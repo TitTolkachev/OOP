@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleRoyalTournamentType.cs" />
+    <Compile Include="CircularTournamentType.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="FinishedTournamentForm.cs">
       <SubType>Form</SubType>
@@ -66,7 +68,7 @@
       <DependentUpon>GameDialogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GameTeamRelation.cs" />
-    <Compile Include="ITournament.cs" />
+    <Compile Include="ITournamentType.cs" />
     <Compile Include="LobbyForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -16,7 +16,7 @@ namespace OOP
             InitializeComponent();
             this.mainForm = mainForm;
             this.game = game;
-            tournament = Controller.GetTournamentByName(game.tournament_name);
+            tournament = Controller.GetTournamentByName(game.tournamentName);
             gameTeamRelations = game.GetRelations();
         }
 
